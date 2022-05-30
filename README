@@ -1,0 +1,33 @@
+**IPK projekt 1:** Paket sniffer
+**Meno:** Lukáš Perina
+**Login:** xperin11
+
+# IPK projekt 2
+***
+Úlohou bolo vypracovať paket sniffer, čo je program slúžiaci na zachytávanie sieťovej komunikácia na
+úrovni paketov. Našou úlohou bolo zamerať sa na TCP a UDP pakety, takže program podrporuje práve tieto.
+Po zachytení paketu sa paket vypíše najskôr hexadecimálne a následne v ascii podobe.
+# Zoznam súborov
+***
+Projekt potrebuje k správnemu fungovaniu a preloženiu súbory ipk-sniffer.c obsahujúci kód, a ipk-sniffer.h
+obsahujúci všetky knižnice ktoré je pre projekt treba. Projekt sa prekladá programom make a priloženým súborom Makefile.
+
+# Spustenie
+***
+Projekt po preložení pomocou programu make vytvorí binárny súbor ./ipk-sniffer ktorý obsahuje rôzne parametre
+na upresnenie činnosti programu.
+**Volanie programu:** sudo ./ipk-sniffer -i rozhraní [-p port] [--tcp|-t] [--udp|-u] [-n num]
+
+-i eth0 rozhranie na ktorom sniffer očakava pakety. Ak sa tento parameter neuvedie, vypišu sa aktivne rozhrania
+-p 23 Filtrovanie paketov na základe portu. Ak nebude parameter uvedeny, ocakavaju sa pakety na všetkych portoch
+-t nebo --tcp (bude zobrazovat iba tcp pakety)
+-u nebo --udp (bude zobrazovat iba udp pakety)
+Ak nebude -t ani -u uvedene, zobrazuju sa oba typy zaroven.
+-n 10 Počet paketov ktore sa maju zobrazit, ak sa parameter neuda tak sa zobrazí iba jeden parameter.
+Pri zadaní negatívneho počtu paketov beží program do zastavenia napriklad cez CTRL+C.
+
+Navyše som si dovolil pridať parameter -h ktorý vypíše nápovedu ako sa má program volať pre správne spustenie.
+
+
+**Priklad:** sudo ./ipk-sniffer -i enp0s3 -p 80 --tcp
+
